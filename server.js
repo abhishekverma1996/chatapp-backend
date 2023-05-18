@@ -8,6 +8,7 @@ const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const path = require("path");
+const cors = require("cors");
 
 dotenv.config();
 const app = express();
@@ -28,7 +29,7 @@ const connectDB = async () => {
 
 connectDB();
 app.use(express.json()); // to accept json data
-
+app.use(cors());
 // app.get("/", (req, res) => {
 //   res.send("API Running!");
 // });
